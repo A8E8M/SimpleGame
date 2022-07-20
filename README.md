@@ -1,2 +1,2 @@
-# SimpleGame
+# Simple Game
 Test
