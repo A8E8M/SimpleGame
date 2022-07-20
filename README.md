@@ -1,1 +1,1 @@
-# SimpleGame
+# Simple Game
