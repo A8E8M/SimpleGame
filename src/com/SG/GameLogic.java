@@ -11,14 +11,14 @@ public class GameLogic {
     public String getMaskWord (){
         return maskWord;
     }
-    public boolean setLetter (char letter) {
-        boolean yesNo = false; // true - верная буква, false - неверная буква
+    public int setLetter (char letter) {
+        int ball = 0; // за каждую открытую букву по баллу
         for (int i = 0; i < maskWord.length(); i++) {
             if (maskWord.charAt(i) != '-') {
                 maskWord2.append(maskWord.charAt(i));
             } else if (letter == word.charAt(i)) {
                 maskWord2.append(letter);
-                yesNo = true;
+                ball +=1;
             } else {
                 maskWord2.append("-");
             }
@@ -26,6 +26,6 @@ public class GameLogic {
 
         maskWord=maskWord2.toString();
         maskWord2.delete(0, maskWord2.length());
-        return yesNo;
+        return ball;
     }
 }

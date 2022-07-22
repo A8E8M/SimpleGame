@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class SimpleGame {
     public static void main(String[] args) {
-        GameLogic game = new GameLogic("привет");
+        GameLogic game = new GameLogic("класс");
 
         boolean oneTwo = true; // true - ход игрока один, false - ход игрока два
         Scanner input = new Scanner(System.in);
@@ -21,21 +21,21 @@ public class SimpleGame {
 
         do {
             char letter;
-            boolean yesNo;
+            int ball;
             if (oneTwo) {
                 System.out.print(playerOne.getName()+ ", введи букву: ");
                 letter = input.next().charAt(0);
-                yesNo = game.setLetter(letter);
+                ball = game.setLetter(letter);
             } else {
                 System.out.print(playerTwo.getName()+ ", введи букву: ");
                 letter = input.next().charAt(0);
-                yesNo = game.setLetter(letter);
+                ball = game.setLetter(letter);
             }
             System.out.println(game.getMaskWord());
-            if (oneTwo && yesNo) {
-                playerOne.setScore(1);
-            } else if (!oneTwo && yesNo){
-                playerTwo.setScore(1);
+            if (oneTwo) {
+                playerOne.setScore(ball);
+            } else {
+                playerTwo.setScore(ball);
             }
             oneTwo =! oneTwo;
         } while (game.getMaskWord().contains("-"));
@@ -45,7 +45,7 @@ public class SimpleGame {
         } else if (playerOne.getScore() < playerTwo.getScore()) {
             System.out.println("Ура! Победил "+ playerTwo.getName()+ "!");
         } else {
-            System.out.println("Вау! Ничья!");
+            System.out.println("Ого, ничья!");
         }
         playerOne.outputScore();
         playerTwo.outputScore();
