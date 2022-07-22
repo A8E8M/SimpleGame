@@ -1,7 +1,16 @@
 package com.SG;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GameLogic {
+
+ //   Map<String, String> mapa = new HashMap<String, String>();
+   // mapa
     private final String word; // загаданное слово
+
+
+
     private String maskWord; //маска слова
     private final StringBuilder maskWord2 = new StringBuilder();
     public GameLogic (String word) {

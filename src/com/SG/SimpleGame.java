@@ -1,11 +1,21 @@
 package com.SG;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class SimpleGame {
     public static void main(String[] args) {
-        GameLogic game = new GameLogic("класс");
+
+        Map<Integer, String> wordCollection = new HashMap<>();
+        wordCollection.put(1,"привет");
+        wordCollection.put(2,"здравствуйте");
+        wordCollection.put(3,"класс");
+        wordCollection.put(4,"квартира");
+        wordCollection.put(5,"программа");
+        int wC = (int) (Math.random()*(wordCollection.size()));
+        GameLogic game = new GameLogic(wordCollection.get(wC));
 
         boolean oneTwo = true; // true - ход игрока один, false - ход игрока два
         Scanner input = new Scanner(System.in);
