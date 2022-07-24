@@ -30,23 +30,14 @@ public class SimpleGame {
         System.out.println("Поехали! Загаданное слово: " + game.getMaskWord());
 
         do {
-            char letter;
-            int ball;
             if (oneTwo) {
                 System.out.print(playerOne.getName()+ ", введи букву: ");
-                letter = input.next().charAt(0);
-                ball = game.setLetter(letter);
+                playerOne.setScore(game.setLetter(input.next().charAt(0)));
             } else {
                 System.out.print(playerTwo.getName()+ ", введи букву: ");
-                letter = input.next().charAt(0);
-                ball = game.setLetter(letter);
+                playerTwo.setScore(game.setLetter(input.next().charAt(0)));
             }
             System.out.println(game.getMaskWord());
-            if (oneTwo) {
-                playerOne.setScore(ball);
-            } else {
-                playerTwo.setScore(ball);
-            }
             oneTwo =! oneTwo;
         } while (game.getMaskWord().contains("-"));
 
